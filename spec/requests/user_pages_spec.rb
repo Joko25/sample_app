@@ -6,7 +6,7 @@ describe "UserPages" do
   describe "Sign up page" do
   	before {visit signup_path}
 
-  	it {should have_title ("Ruby on Rails Tutorial Sample App | Sign up")}
+  	it {should have_title ("MYNesia | Sign up")}
   	it {should have_content ('Sign up')}
   end
 end
