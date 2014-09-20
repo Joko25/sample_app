@@ -1,0 +1,4 @@
+<% @user.each do |user|%>
+<%= link_to user.name, {:action => "show", :id =>user.id}%>
+<%= user.email%>
+<% end %>
