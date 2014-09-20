@@ -54,4 +54,30 @@ describe "User pages" do
     it { should have_content('Sign up') }
     it { should have_title("MYNesia | Sign up") }
   end
+
+  describe "signup" do
+
+    before { visit signup_path }
+
+    let(:submit) { "Create my account" }
+
+    describe "with invalid information" do
+      it "should not create a user" do
+        expect { click_button submit }.not_to change(User, :count)
+      end
+    end
+
+    describe "with valid information" do
+      before do
+        fill_in "Name",         with: "Joko Mulyono"
+        fill_in "Email",        with: "jokomulyono696@gmail.com"
+        fill_in "Password",     with: "7070asyik"
+        fill_in "Confirmation", with: "7070asyik"
+      end
+
+      it "should create a user" do
+        expect { click_button submit }.to change(User, :count).by(1)
+      end
+    end
+  end
 end
